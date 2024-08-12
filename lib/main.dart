@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const Home(),
         '/about': (context) => const AboutPage(),
-        '/events': (context) => const EventsPage(),
-        '/contact': (context) => const ContactPage(),
+        '/events': (context) => EventsPage(),
+        '/contact': (context) => ContactPage(),
       },
       debugShowCheckedModeBanner: false,
     );
