@@ -9,27 +9,27 @@ Widget buildCategoriesGrid() {
       buildCategoryCard(
           'Blockchain',
           'Discover the technology behind Bitcoin and Ethereum',
-          'assets/images/blockchain.png'),
+          'assets/images/Blockchain.png'),
       buildCategoryCard(
           'Web Development',
           'Web development is building web applications.',
-          'assets/images/web_development.png'),
+          'assets/images/Web.png'),
       buildCategoryCard(
           'Machine Learning',
           'Machine learning is a field of AI where computers learn from data to make decisions.',
-          'assets/images/machine_learning.png'),
+          'assets/images/ML.png'),
       buildCategoryCard(
           'Cyber security',
-          'Cybersecurity is the practice of protecting systems, networks, and data from digital attacks.',
-          'assets/images/cyber_security.png'),
+          'Cybersecurity is the practice of protecting networks from digital attacks.',
+          'assets/images/cybersecurity.png'),
       buildCategoryCard(
           'IOT',
           'The Internet of Thingsis a network of devices that communicate and exchange data.',
-          'assets/images/iot.png'),
+          'assets/images/IOT.png'),
       buildCategoryCard(
           'Open Innovation',
           'Open innovation uses external ideas and collaborations to drive internal innovation.',
-          'assets/images/open_innovation.png'),
+          'assets/images/Open_innovation.png'),
     ],
   );
 }

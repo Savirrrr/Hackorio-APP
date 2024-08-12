@@ -76,12 +76,10 @@ class _AboutPageState extends State<AboutPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    _buildStatCard('assets/images/events.png', '10+', 'Events'),
                     _buildStatCard(
-                        'assets/images/zoom_logo.png', '10+', 'Events'),
-                    _buildStatCard(
-                        'assets/images/people_logo.png', '1000+', 'Students'),
-                    _buildStatCard(
-                        'assets/images/medal_logo.png', '26', 'Awards'),
+                        'assets/images/member.png', '1000+', 'Students'),
+                    _buildStatCard('assets/images/medal.png', '26', 'Awards'),
                   ],
                 ),
                 const SizedBox(height: 30),

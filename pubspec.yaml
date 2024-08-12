@@ -69,12 +69,12 @@ flutter:
   assets:
     - assets/images/Hackorio_logo.png
     - assets/images/header.png
-    # - assets/images/blockchain.png
-    # - assets/images/web_development.png
-    # - assets/images/machine_learning.png
-    # - assets/images/cyber_security.png
-    # - assets/images/iot.png
-    # - assets/images/open_innovation.png
+    - assets/images/Blockchain.png
+    - assets/images/Web.png
+    - assets/images/ML.png
+    - assets/images/cybersecurity.png
+    - assets/images/IOT.png
+    - assets/images/Open_innovation.png
     - assets/images/mentor.jpg
     - assets/images/member-1.jpg
     - assets/images/member-2.jpg
@@ -83,6 +83,11 @@ flutter:
     - assets/images/member-5.jpg
     - assets/images/unite.jpg
     - assets/images/contact.jpg
+    - assets/images/medal.png
+    - assets/images/member.png
+    - assets/images/events.png
+    - assets/images/Unite.png
+    - assets/images/Uncease.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

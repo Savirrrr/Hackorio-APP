@@ -56,7 +56,7 @@ class _EventsPageState extends State<EventsPage> {
                     'TECH HACK #3 was a dynamic three-day event featuring a comprehensive bootcamp on day one followed by an exhilarating overnight hackathon across seven parallel domains. Participants engaged in intense collaboration, tackling cutting-edge challenges from AI to cybersecurity, showcasing their innovation and technical prowess.',
               ),
               buildEventCard(
-                imagePath: 'assets/images/unite.jpg',
+                imagePath: 'assets/images/Uncease.png',
                 eventName: 'UNCEASE',
                 description:
                     'Two days of immersive workshops on web technologies followed by an action-packed hackathon. Empowering students to learn, create, and innovate in the fast-paced world of web development.',
@@ -68,7 +68,7 @@ class _EventsPageState extends State<EventsPage> {
                     'Join our Ideathon where students brainstorm and pitch innovative ideas without prototypes, showcasing creativity and visionary thinking!',
               ),
               buildEventCard(
-                imagePath: 'assets/images/unite.jpg',
+                imagePath: 'assets/images/unite.png',
                 eventName: 'HACKORIO UNITE',
                 description:
                     'Hackorio Unite brought the thrill of hackathons to our college, inspiring students to dive into the world of innovation and collaboration. Join us as we unite to fuel creativity, push boundaries, and make impactful strides in the tech world.',
@@ -97,7 +97,7 @@ class _EventsPageState extends State<EventsPage> {
           Image.asset(
             imagePath,
             fit: BoxFit.cover,
-            height: 200,
+            height: 400,
             width: double.infinity,
           ),
           Container(
