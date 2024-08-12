@@ -32,11 +32,6 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
   url_launcher:
-  firebase_core: 
-  firebase_analytics: 
-  firebase_remote_config: 
-  firebase_auth: 
-  firebase_database: 
 
 
   # The following adds the Cupertino Icons font to your application.

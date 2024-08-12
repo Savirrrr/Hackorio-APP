@@ -97,7 +97,7 @@ class _EventsPageState extends State<EventsPage> {
           Image.asset(
             imagePath,
             fit: BoxFit.cover,
-            height: 300,
+            height: 400,
             width: double.infinity,
           ),
           Container(
