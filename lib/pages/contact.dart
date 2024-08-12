@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackorio_app/pages/app_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatefulWidget {
   @override
@@ -18,22 +20,22 @@ class _ContactPageState extends State<ContactPage> {
           // Handle menu item selection
           switch (value) {
             case 'Home':
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
               break;
             case 'About':
-              Navigator.pushNamed(context, '/about');
+              Navigator.pushReplacementNamed(context, '/about');
               break;
             case 'Events':
-              Navigator.pushNamed(context, '/events');
+              Navigator.pushReplacementNamed(context, '/events');
               break;
             case 'Contact Us':
-              Navigator.pushNamed(context, '/contact');
+              Navigator.pushReplacementNamed(context, '/contact');
               break;
           }
         },
       ),
       backgroundColor:
-          Color.fromARGB(255, 37, 40, 82), // Match home screen color
+          const Color.fromARGB(255, 37, 40, 82), // Match home screen color
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification) {
           if (notification is ScrollUpdateNotification) {
@@ -62,7 +64,7 @@ class _ContactPageState extends State<ContactPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/contact_us_image.png', // Add the contact image path
+                          'assets/images/contact.jpg', // Add the contact image path
                           height: 100,
                           width: 100,
                         ),
@@ -110,28 +112,20 @@ class _ContactPageState extends State<ContactPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             IconButton(
-                              icon: Icon(
-                                  Icons.image), // Replace with Instagram icon
-                              color: Colors.white,
-                              onPressed: () {
-                                // Add Instagram link functionality
-                              },
+                              icon: const FaIcon(FontAwesomeIcons.instagram,
+                                  color: Colors.white, size: 20),
+                              onPressed: () => launchUrl(Uri.parse(
+                                  "https://www.instagram.com/anurag.hackorio?igsh=bTJra3JhMHphMTRn")),
                             ),
                             IconButton(
-                              icon: Icon(
-                                  Icons.image), // Replace with LinkedIn icon
-                              color: Colors.white,
-                              onPressed: () {
-                                // Add LinkedIn link functionality
-                              },
+                              icon: const FaIcon(FontAwesomeIcons.twitter,
+                                  color: Colors.white, size: 20),
+                              onPressed: () => launchUrl(Uri.parse("uri")),
                             ),
                             IconButton(
-                              icon: Icon(
-                                  Icons.image), // Replace with WhatsApp icon
-                              color: Colors.white,
-                              onPressed: () {
-                                // Add WhatsApp link functionality
-                              },
+                              icon: const FaIcon(FontAwesomeIcons.linkedin,
+                                  color: Colors.white, size: 20),
+                              onPressed: () => launchUrl(Uri.parse("uri")),
                             ),
                           ],
                         ),

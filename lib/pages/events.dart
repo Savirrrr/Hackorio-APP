@@ -18,16 +18,16 @@ class _EventsPageState extends State<EventsPage> {
           // Handle menu item selection
           switch (value) {
             case 'Home':
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
               break;
             case 'About':
-              Navigator.pushNamed(context, '/about');
+              Navigator.pushReplacementNamed(context, '/about');
               break;
             case 'Events':
-              Navigator.pushNamed(context, '/events');
+              Navigator.pushReplacementNamed(context, '/events');
               break;
             case 'Contact Us':
-              Navigator.pushNamed(context, '/contact');
+              Navigator.pushReplacementNamed(context, '/contact');
               break;
           }
         },
