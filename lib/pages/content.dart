@@ -36,7 +36,7 @@ Widget buildCategoriesGrid() {
 
 Widget buildCategoryCard(String title, String description, String imagePath) {
   return Card(
-    color: Color.fromARGB(187, 96, 58, 211),
+    color: const Color.fromARGB(187, 96, 58, 211),
     margin: const EdgeInsets.all(10),
     elevation: 5,
     shape: RoundedRectangleBorder(

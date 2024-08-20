@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hackorio_app/pages/app_bar.dart';
 
 class EventsPage extends StatefulWidget {
+  const EventsPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _EventsPageState createState() => _EventsPageState();
 }
 
@@ -33,7 +36,7 @@ class _EventsPageState extends State<EventsPage> {
         },
       ),
       backgroundColor:
-          Color.fromARGB(255, 37, 40, 82), // Match home screen color
+          const Color.fromARGB(255, 37, 40, 82), // Match home screen color
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification) {
           if (notification is ScrollUpdateNotification) {

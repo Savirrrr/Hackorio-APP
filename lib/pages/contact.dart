@@ -88,7 +88,7 @@ class _ContactPageState extends State<ContactPage> {
               children: <Widget>[
                 // Contact Card
                 Card(
-                  color: Color.fromARGB(255, 82, 90, 144),
+                  color: const Color.fromARGB(255, 82, 90, 144),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -104,7 +104,7 @@ class _ContactPageState extends State<ContactPage> {
                           width: 100,
                         ),
                         const SizedBox(height: 20),
-                        Text(
+                        const Text(
                           'Contact Us',
                           style: TextStyle(
                             fontSize: 28,
@@ -113,7 +113,7 @@ class _ContactPageState extends State<ContactPage> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Text(
+                        const Text(
                           'A diverse community passionate about hackathons and technology. Join us to collaborate, innovate, and make a real-world impact through hands-on projects and hackathons.',
                           style: TextStyle(
                             fontSize: 16,
@@ -121,10 +121,10 @@ class _ContactPageState extends State<ContactPage> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Row(
+                        const Row(
                           children: <Widget>[
                             Icon(Icons.email, color: Colors.white70),
-                            const SizedBox(width: 10),
+                            SizedBox(width: 10),
                             Text(
                               'anurag.hackorio@anurag.edu.in',
                               style: TextStyle(color: Colors.white70),
@@ -132,10 +132,10 @@ class _ContactPageState extends State<ContactPage> {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        Row(
+                        const Row(
                           children: <Widget>[
                             Icon(Icons.location_on, color: Colors.white70),
-                            const SizedBox(width: 10),
+                            SizedBox(width: 10),
                             Text(
                               'Hyderabad, Telangana',
                               style: TextStyle(color: Colors.white70),
@@ -171,7 +171,7 @@ class _ContactPageState extends State<ContactPage> {
                 const SizedBox(height: 20),
                 // Contact Form
                 Card(
-                  color: Color.fromARGB(255, 82, 90, 144),
+                  color: const Color.fromARGB(255, 82, 90, 144),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -190,7 +190,8 @@ class _ContactPageState extends State<ContactPage> {
                                   filled: true,
                                   fillColor: Colors.grey[800],
                                   hintText: 'First Name',
-                                  hintStyle: TextStyle(color: Colors.white70),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.white70),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide.none,
@@ -206,7 +207,8 @@ class _ContactPageState extends State<ContactPage> {
                                   filled: true,
                                   fillColor: Colors.grey[800],
                                   hintText: 'Last Name',
-                                  hintStyle: TextStyle(color: Colors.white70),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.white70),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide.none,
@@ -223,7 +225,7 @@ class _ContactPageState extends State<ContactPage> {
                             filled: true,
                             fillColor: Colors.grey[800],
                             hintText: 'Your Email Address',
-                            hintStyle: TextStyle(color: Colors.white70),
+                            hintStyle: const TextStyle(color: Colors.white70),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none,
@@ -238,7 +240,7 @@ class _ContactPageState extends State<ContactPage> {
                             filled: true,
                             fillColor: Colors.grey[800],
                             hintText: 'Message',
-                            hintStyle: TextStyle(color: Colors.white70),
+                            hintStyle: const TextStyle(color: Colors.white70),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none,
