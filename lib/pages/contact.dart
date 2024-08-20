@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackorio_app/pages/app_bar.dart';
@@ -10,6 +12,39 @@ class ContactPage extends StatefulWidget {
 
 class _ContactPageState extends State<ContactPage> {
   double _appBarOpacity = 1.0;
+  final TextEditingController _firstname = TextEditingController();
+  final TextEditingController _Lastname = TextEditingController();
+  final TextEditingController _Email = TextEditingController();
+  final TextEditingController _message = TextEditingController();
+
+  Future<void> _email() async {
+    String firstname = _firstname.text;
+    String lastname = _Lastname.text;
+    String email = _Email.text;
+    String message = _message.text;
+
+    final response = await http.post(
+        Uri.parse("http://localhost:3000/sendmail"),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          'firstname': firstname,
+          'lastname': lastname,
+          'email': email,
+          'message': message
+        }));
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Email sent succesfully!')),
+      );
+    }
+    if (response.statusCode != 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid email ')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +185,7 @@ class _ContactPageState extends State<ContactPage> {
                           children: <Widget>[
                             Expanded(
                               child: TextField(
+                                controller: _firstname,
                                 decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.grey[800],
@@ -165,6 +201,7 @@ class _ContactPageState extends State<ContactPage> {
                             const SizedBox(width: 10),
                             Expanded(
                               child: TextField(
+                                controller: _Lastname,
                                 decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.grey[800],
@@ -181,6 +218,7 @@ class _ContactPageState extends State<ContactPage> {
                         ),
                         const SizedBox(height: 10),
                         TextField(
+                          controller: _Email,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey[800],
@@ -195,6 +233,7 @@ class _ContactPageState extends State<ContactPage> {
                         const SizedBox(height: 10),
                         TextField(
                           maxLines: 4,
+                          controller: _message,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey[800],
@@ -209,9 +248,7 @@ class _ContactPageState extends State<ContactPage> {
                         const SizedBox(height: 20),
                         Center(
                           child: ElevatedButton(
-                            onPressed: () {
-                              // Add Send Message functionality
-                            },
+                            onPressed: _email,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange,
                               padding: const EdgeInsets.symmetric(
