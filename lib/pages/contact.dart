@@ -13,35 +13,37 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   double _appBarOpacity = 1.0;
   final TextEditingController _firstname = TextEditingController();
-  final TextEditingController _Lastname = TextEditingController();
-  final TextEditingController _Email = TextEditingController();
+  final TextEditingController _lastname = TextEditingController();
+  final TextEditingController _email = TextEditingController();
   final TextEditingController _message = TextEditingController();
 
-  Future<void> _email() async {
+  Future<void> _emaill() async {
     String firstname = _firstname.text;
-    String lastname = _Lastname.text;
-    String email = _Email.text;
+    String lastname = _lastname.text;
+    String email = _email.text;
     String message = _message.text;
 
     final response = await http.post(
-        Uri.parse("http://localhost:3000/sendmail"),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode({
-          'firstname': firstname,
-          'lastname': lastname,
-          'email': email,
-          'message': message
-        }));
+      Uri.parse("http://localhost:3000/sendmail"),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        'firstname': firstname,
+        'lastname': lastname,
+        'email': email,
+        'message': message,
+      }),
+    );
+
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Email sent succesfully!')),
+        const SnackBar(content: Text('Email sent successfully!')),
       );
-    }
-    if (response.statusCode != 200) {
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Invalid email ')),
+        const SnackBar(
+            content: Text('Failed to send email. Please try again.')),
       );
     }
   }
@@ -150,17 +152,19 @@ class _ContactPageState extends State<ContactPage> {
                               icon: const FaIcon(FontAwesomeIcons.instagram,
                                   color: Colors.white, size: 20),
                               onPressed: () => launchUrl(Uri.parse(
-                                  "https://www.instagram.com/anurag.hackorio?igsh=bTJra3JhMHphMTRn")),
+                                  "https://www.instagram.com/anurag.hackorio")),
                             ),
                             IconButton(
                               icon: const FaIcon(FontAwesomeIcons.twitter,
                                   color: Colors.white, size: 20),
-                              onPressed: () => launchUrl(Uri.parse("uri")),
+                              onPressed: () => launchUrl(Uri.parse(
+                                  "https://twitter.com/yourprofile")), // Update with correct URL
                             ),
                             IconButton(
                               icon: const FaIcon(FontAwesomeIcons.linkedin,
                                   color: Colors.white, size: 20),
-                              onPressed: () => launchUrl(Uri.parse("uri")),
+                              onPressed: () => launchUrl(Uri.parse(
+                                  "https://www.linkedin.com/in/yourprofile")), // Update with correct URL
                             ),
                           ],
                         ),
@@ -202,7 +206,7 @@ class _ContactPageState extends State<ContactPage> {
                             const SizedBox(width: 10),
                             Expanded(
                               child: TextField(
-                                controller: _Lastname,
+                                controller: _lastname,
                                 decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.grey[800],
@@ -220,7 +224,7 @@ class _ContactPageState extends State<ContactPage> {
                         ),
                         const SizedBox(height: 10),
                         TextField(
-                          controller: _Email,
+                          controller: _email,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey[800],
@@ -250,7 +254,7 @@ class _ContactPageState extends State<ContactPage> {
                         const SizedBox(height: 20),
                         Center(
                           child: ElevatedButton(
-                            onPressed: _email,
+                            onPressed: _emaill,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange,
                               padding: const EdgeInsets.symmetric(
