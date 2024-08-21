@@ -149,65 +149,53 @@ class _AboutPageState extends State<AboutPage> {
   Widget _buildTeamCards() {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildTeamCard(
-                'assets/images/mentor.jpg',
-                'Dr.B.Ravinder Reddy',
-                'Club Incharge',
-                'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
-                'https://x.com/home',
-                'https://www.linkedin.com/in/poojitha-mukku-139979248/'),
-            _buildTeamCard(
-                'assets/images/member-1.jpg',
-                'Mukku Poojitha',
-                'President',
-                'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
-                'https://x.com/home',
-                'https://www.linkedin.com/in/poojitha-mukku-139979248/'),
-          ],
-        ),
+        _buildTeamCard(
+            'assets/images/mentor.jpg',
+            'Dr. B. Ravinder Reddy',
+            'Club Incharge',
+            'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
+            'https://x.com/home',
+            'https://www.linkedin.com/in/poojitha-mukku-139979248/'),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildTeamCard(
-                'assets/images/member-2.jpg',
-                'Rao Shraunak',
-                'Vice President',
-                'https://www.instagram.com/',
-                'https://twitter.com/home',
-                'https://www.linkedin.com/in/rao-shraunak-reddy-452a9225a/'),
-            _buildTeamCard(
-                'assets/images/member-3.jpg',
-                'Sharanya Reddy',
-                'Secretary',
-                'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
-                'https://twitter.com/home',
-                'https://www.linkedin.com/in/ravula-sharanya-reddy-19ab2a268/'),
-          ],
-        ),
+        _buildTeamCard(
+            'assets/images/member-1.jpg',
+            'Mukku Poojitha',
+            'President',
+            'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
+            'https://x.com/home',
+            'https://www.linkedin.com/in/poojitha-mukku-139979248/'),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildTeamCard(
-                'assets/images/member-4.jpg',
-                'Tota Akshitha',
-                'Vice President PR',
-                'https://www.instagram.com/akshitha_reddii?igsh=a2kyZHY3bXNzbnk2',
-                'https://x.com/home',
-                'https://www.linkedin.com/in/thota-akshitha-03bb84242/'),
-            _buildTeamCard(
-                'assets/images/member-5.jpg',
-                'Lalith Sangeeth',
-                'App Developer',
-                'https://www.instagram.com/mr_lalith_07__?igsh=MTJmb28weXlscWdxcQ%3D%3D',
-                'https://x.com/home',
-                'https://www.linkedin.com/in/lalith-sangeeth-jukanti-845857275/'),
-          ],
-        ),
+        _buildTeamCard(
+            'assets/images/member-2.jpg',
+            'Rao Shraunak',
+            'Vice President',
+            'https://www.instagram.com/',
+            'https://twitter.com/home',
+            'https://www.linkedin.com/in/rao-shraunak-reddy-452a9225a/'),
+        const SizedBox(height: 20),
+        _buildTeamCard(
+            'assets/images/member-3.jpg',
+            'Sharanya Reddy',
+            'Secretary',
+            'https://www.instagram.com/poojitha_reddy6?igsh=MXNiaXdzZ2I1aWtiag%3D%3D',
+            'https://twitter.com/home',
+            'https://www.linkedin.com/in/ravula-sharanya-reddy-19ab2a268/'),
+        const SizedBox(height: 20),
+        _buildTeamCard(
+            'assets/images/member-4.jpg',
+            'Tota Akshitha',
+            'Vice President PR',
+            'https://www.instagram.com/akshitha_reddii?igsh=a2kyZHY3bXNzbnk2',
+            'https://x.com/home',
+            'https://www.linkedin.com/in/thota-akshitha-03bb84242/'),
+        const SizedBox(height: 20),
+        _buildTeamCard(
+            'assets/images/member-5.jpg',
+            'Lalith Sangeeth',
+            'App Developer',
+            'https://www.instagram.com/mr_lalith_07__?igsh=MTJmb28weXlscWdxcQ%3D%3D',
+            'https://x.com/home',
+            'https://www.linkedin.com/in/lalith-sangeeth-jukanti-845857275/'),
       ],
     );
   }
@@ -221,21 +209,22 @@ class _AboutPageState extends State<AboutPage> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
-        width: 170, // Increased width
-        padding: const EdgeInsets.all(15),
+        width: MediaQuery.of(context).size.width *
+            0.9, // Adjust width to be responsive
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Image.asset(
               imagePath,
-              height: 150, // Increased height for the image
-              width: 250,
+              height: 150, // Adjusted height
+              width: 150, // Adjusted width
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 10),
             Text(
               name,
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 16, // Increased font size
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -244,27 +233,29 @@ class _AboutPageState extends State<AboutPage> {
             Text(
               designation,
               style: const TextStyle(
-                fontSize: 14,
+                fontSize: 14, // Increased font size
                 color: Colors.white,
               ),
             ),
             const Divider(color: Colors.white, thickness: 1),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
                   icon: const FaIcon(FontAwesomeIcons.instagram,
-                      color: Colors.white, size: 20),
+                      color: Colors.white, size: 24), // Increased size
                   onPressed: () => _launchURL(instagramUrl),
                 ),
+                const SizedBox(width: 10), // Adjusted space between icons
                 IconButton(
                   icon: const FaIcon(FontAwesomeIcons.twitter,
-                      color: Colors.white, size: 20),
+                      color: Colors.white, size: 24), // Increased size
                   onPressed: () => _launchURL(twitterUrl),
                 ),
+                const SizedBox(width: 10), // Adjusted space between icons
                 IconButton(
                   icon: const FaIcon(FontAwesomeIcons.linkedin,
-                      color: Colors.white, size: 20),
+                      color: Colors.white, size: 24), // Increased size
                   onPressed: () => _launchURL(linkedinUrl),
                 ),
               ],

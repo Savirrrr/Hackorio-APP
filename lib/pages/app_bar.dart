@@ -18,13 +18,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Center(
-        child: Text(
-          'HACKORIO.',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+      title: Padding(
+        padding: const EdgeInsets.only(left: 50.0),
+        child: const Center(
+          child: Text(
+            'HACKORIO.',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

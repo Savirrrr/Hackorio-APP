@@ -24,7 +24,7 @@ Widget buildCategoriesGrid() {
           'assets/images/cybersecurity.png'),
       buildCategoryCard(
           'IOT',
-          'The Internet of Thingsis a network of devices that communicate and exchange data.',
+          'The Internet of Things is a network of devices that communicate and exchange data.',
           'assets/images/IOT.png'),
       buildCategoryCard(
           'Open Innovation',
@@ -44,14 +44,14 @@ Widget buildCategoryCard(String title, String description, String imagePath) {
     ),
     child: Container(
       padding: const EdgeInsets.all(10),
-      height: 200,
-      width: 150,
+      height: 500, // Increased height
+      width: 150, // Increased width
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
             imagePath,
-            height: 60,
+            height: 30,
             width: double.infinity,
             fit: BoxFit.cover,
           ),

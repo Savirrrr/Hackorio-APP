@@ -18,13 +18,14 @@ class _ContactPageState extends State<ContactPage> {
   final TextEditingController _message = TextEditingController();
 
   Future<void> _emaill() async {
+    print("Function clicked");
     String firstname = _firstname.text;
     String lastname = _lastname.text;
     String email = _email.text;
     String message = _message.text;
 
     final response = await http.post(
-      Uri.parse("http://localhost:3000/sendmail"),
+      Uri.parse("http://192.168.106.119:3000/sendmail"),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },

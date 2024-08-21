@@ -71,7 +71,7 @@ class _EventsPageState extends State<EventsPage> {
                     'Join our Ideathon where students brainstorm and pitch innovative ideas without prototypes, showcasing creativity and visionary thinking!',
               ),
               buildEventCard(
-                imagePath: 'assets/images/unite.png',
+                imagePath: 'assets/images/Unite.png',
                 eventName: 'HACKORIO UNITE',
                 description:
                     'Hackorio Unite brought the thrill of hackathons to our college, inspiring students to dive into the world of innovation and collaboration. Join us as we unite to fuel creativity, push boundaries, and make impactful strides in the tech world.',

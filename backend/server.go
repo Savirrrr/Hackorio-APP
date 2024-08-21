@@ -1,8 +1,8 @@
 package main
 
 import (
+	"crypto/tls"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -23,6 +23,7 @@ func enableCors(next http.Handler) http.Handler {
 		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 		if r.Method == "OPTIONS" {
+			log.Println("Received OPTIONS request")
 			w.WriteHeader(http.StatusOK)
 			return
 		}
@@ -31,7 +32,10 @@ func enableCors(next http.Handler) http.Handler {
 }
 
 func messageHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("Received request on /sendmail endpoint")
+
 	if r.Method == http.MethodPost {
+		log.Println("Processing POST request")
 		var user User
 
 		err := json.NewDecoder(r.Body).Decode(&user)
@@ -42,21 +46,21 @@ func messageHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		user.Email = strings.ToLower(user.Email)
 
-		log.Print("Received email %s", user.Email)
+		log.Printf("Decoded JSON: FirstName: %s, LastName: %s, Email: %s, Message: %s", user.FirstName, user.LastName, user.Email, user.Message)
 
-		err = sendEmail("savirp1905@gmail.com", user.Email, "Hi "+user.FirstName+" "+user.LastName, "We received following message.We will be looking in to it and get back to you shortly "+user.Message)
+		err = sendEmail("savirp1905@gmail.com", user.Email, "Hi "+user.FirstName+" "+user.LastName, "We received the following message. We will be looking into it and get back to you shortly: "+user.Message)
 		if err != nil {
 			log.Printf("Error sending email: %v", err)
 			http.Error(w, "Error sending email", http.StatusInternalServerError)
 			return
 		}
 
-		log.Printf("Email sent successfully!")
+		log.Printf("Email sent successfully to %s", user.Email)
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("email sent"))
+		w.Write([]byte("Email sent successfully"))
 
 	} else {
-		log.Printf("Invalid request method: %v", r.Method)
+		log.Printf("Invalid request method: %s", r.Method)
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 	}
 }
@@ -64,15 +68,20 @@ func messageHandler(w http.ResponseWriter, r *http.Request) {
 func sendEmail(from string, to string, subject string, body string) error {
 	password := "wdqk tdot bdxk laep"
 
+	log.Printf("Preparing to send email from %s to %s with subject %s", from, to, subject)
+
 	msg := gomail.NewMessage()
 	msg.SetHeader("From", from)
 	msg.SetHeader("To", to)
 	msg.SetHeader("Subject", subject)
 	msg.SetBody("text/plain", body)
 
-	dailer := gomail.NewDialer("smtp.gmail.com", 587, from, password)
+	log.Println("Setting up SMTP dialer")
+	dialer := gomail.NewDialer("smtp.gmail.com", 587, from, password)
+	dialer.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
-	err := dailer.DialAndSend(msg)
+	log.Println("Attempting to send email")
+	err := dialer.DialAndSend(msg)
 	if err != nil {
 		log.Printf("Error sending email to %s: %v", to, err)
 		return err
@@ -80,17 +89,18 @@ func sendEmail(from string, to string, subject string, body string) error {
 
 	log.Printf("Email sent successfully to %s", to)
 	return nil
-
 }
 
 func main() {
+	log.Println("Starting server on port 3000")
+
 	http.HandleFunc("/sendmail", messageHandler)
 
 	srv := &http.Server{
 		Addr:    ":3000",
 		Handler: enableCors(http.DefaultServeMux),
 	}
-	fmt.Println("Server is running in server 3000")
+	log.Println("Server is running on port 3000")
 
 	log.Fatal(srv.ListenAndServe())
 }
