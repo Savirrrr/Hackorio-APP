@@ -25,7 +25,7 @@ class _ContactPageState extends State<ContactPage> {
     String message = _message.text;
 
     final response = await http.post(
-      Uri.parse("http://192.168.106.119:3000/sendmail"),
+      Uri.parse("http://172.20.10.2:3000/sendmail"),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
